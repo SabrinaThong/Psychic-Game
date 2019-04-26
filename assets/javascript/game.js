@@ -8,7 +8,6 @@ var lettersGuessed = [];
 
 document.onkeyup = function(event) {
     var Guess = event.key;
-    lettersGuessed.push(letters);
     var computerChoice = letters[Math.floor(Math.random() * letters.length)];
     console.log(computerChoice);
 
@@ -28,7 +27,8 @@ document.onkeyup = function(event) {
     if (guesses < 0){
         guesses.reset = guesses = 9;
     }
-
+    lettersGuessed.push(Guess);
+    document.getElementById("lettersGuessed").innerHTML = lettersGuessed + (',');
     document.getElementById("wins").innerHTML = "Wins: " + wins;
     document.getElementById("lose").innerHTML = "Losses: " + losses;
     document.getElementById("guesses").innerHTML = "Guesses left: " + guesses;
